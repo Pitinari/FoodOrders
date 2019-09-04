@@ -54,6 +54,12 @@ app.post('/api/delete', (req, res) => {
     res.send(orders);
 });
 
+app.post('/api/delete-all', (req, res) => {
+    orders = [];
+    saveOrders(orders);
+    res.send(orders);
+});
+
 app.listen(3000, function () {
     console.log('order app listening on port 3000!');
 });
