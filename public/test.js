@@ -4,12 +4,12 @@ let order = {
     state: 1
 }
 
-function orders() {
+function orders(onSuccess) {
     console.log('orders');
     $.ajax({
         url: "http://localhost:3000/api/orders",
         success: function (result) {
-            console.log(result);
+            onSuccess(result);
         }
     });
 }

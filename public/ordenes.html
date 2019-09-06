@@ -1,0 +1,16 @@
+<head>
+    <script src="./jquery.js"></script>
+    <script src="./ordenes.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        updateListaOrdenes()
+    	setInterval(updateListaOrdenes, 1000)
+    });
+    </script>
+</head>
+
+<body>
+	<p>Ordenes</p>
+    <div id="tabla" style="display: flex; width: 100%; height: 100%; justify-content: flex-start; flex-direction: column;">
+    </div>
+</body>
