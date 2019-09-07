@@ -24,22 +24,29 @@ function updateHTML(pedidos){
     for (var pedido of pedidos) {
 
         var div = $(document.createElement("div"))
+        div.attr("style","display:flex;justify-content:space-around;align-items:center;");
         var pNro = $(document.createElement("h1"))
         var pState = $(document.createElement("p"))
+        var iState = $(document.createElement("img"))
+        iState.attr("width","30px")
+        iState.attr("height","30px")
 
         var estado = "";
         if(pedido.state == EN_PREPARACION){
             estado ="En preparacion"
+            iState.attr("src","./icons/en-proceso.svg")
         }
         else if(pedido.state == LISTO){
             estado = "Listo"
+            iState.attr("src","./icons/hecho.svg")
         }
-        
+
         pNro.text(pedido.number)
         pState.text(estado)
 
         div.append(pNro)
         div.append(pState)
+        div.append(iState)
 
         div.css({backgroundColor: '#eeeeee', height: "100px"})
 
