@@ -1,9 +1,3 @@
-let order = {
-    id: 1,
-    number: 2,
-    state: 1
-}
-
 function orders(onSuccess) {
     console.log('orders');
     $.ajax({
@@ -14,7 +8,7 @@ function orders(onSuccess) {
     });
 }
 
-function add() {
+function add(order) {
     console.log('add');
     $.ajax({
         url: "/api/add",
@@ -27,7 +21,7 @@ function add() {
     });
 }
 
-function del() {
+function del(order) {
     console.log('del');
     $.ajax({
         url: "/api/delete",
@@ -40,7 +34,7 @@ function del() {
     });
 }
 
-function upd() {
+function upd(order) {
     console.log('upd');
     $.ajax({
         url: "/api/update",
