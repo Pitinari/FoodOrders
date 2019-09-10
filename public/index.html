@@ -25,30 +25,83 @@
     </script>
 </head>
 <body>
-    <form id="formAddOrder">
-    	<input type="number" id="orderNumber">
-    	<select id="orderState">
+
+	<h1>Acciones:</h1>
+
+	<div>
+
+			<input type="button" id="foo" class="button" onclick="agg()" value="Agregar orden"/>
+			<input type="button" id="foo2" class="button" onclick="upd()" value="Actualizar orden"/>
+			<input type="button" id="foo3" class="button" onclick="del()" value="Borrar orden"/>
+
+	</div>
+
+	<script>
+			function agg() {
+			  document.getElementById('formAddOrder').style = ""
+			  document.getElementById('formUpdateOrder').style = "display:none;"
+			  document.getElementById('formDeleteOrder').style = "display:none;"
+			  document.getElementById('foo').setAttribute("class", "button2")
+			  document.getElementById('foo2').setAttribute("class", "button")
+			  document.getElementById('foo3').setAttribute("class", "button")
+			}
+			function upd() {
+			  document.getElementById('formAddOrder').style = "display:none;"
+			  document.getElementById('formUpdateOrder').style = ""
+			  document.getElementById('formDeleteOrder').style = "display:none;"
+			  document.getElementById('foo2').setAttribute("class", "button2")
+			  document.getElementById('foo').setAttribute("class", "button")
+			  document.getElementById('foo3').setAttribute("class", "button")
+			}
+			function del() {
+			  document.getElementById('formAddOrder').style = "display:none;"
+			  document.getElementById('formUpdateOrder').style = "display:none;"
+			  document.getElementById('formDeleteOrder').style = ""
+			  document.getElementById('foo2').setAttribute("class", "button")
+			  document.getElementById('foo').setAttribute("class", "button")
+			  document.getElementById('foo3').setAttribute("class", "button2")
+			}
+	</script>
+
+    <form id="formAddOrder" style="display:none;">
+    	<input class="boton" placeholder="Nº de orden" type="number" id="orderNumber">
+    	<select class="boton" id="orderState">
+		  <option disabled value="" selected hidden>Seleccione estado</option>
 		  <option value=1>En Proceso</option>
 		  <option value=0>Listo</option>
 		  <option value=2>Entregado</option>
 		</select>
-		<input type="submit" value="Agregar" />
+		<input class="buttonG" type="button" onclick="f()" value="Agregar" />
     </form>
 
-    <form id="formUpdateOrder">
-    	<input type="number" id="orderNumber">
-    	<select id="orderState">
+    <form id="formUpdateOrder" style="display:none;">
+    	<input class="boton" placeholder="Nº de orden" type="number" id="orderNumber">
+    	<select class="boton" id="orderState">
+		  <option disabled value="" selected hidden>Seleccione estado</option>
 		  <option value=1>En Proceso</option>
 		  <option value=0>Listo</option>
 		  <option value=2>Entregado</option>
 		</select>
-		<input type="submit" value="Actualizar" />
+		<input class="buttonG" type="button" onclick="f()" value="Actualizar" />
     </form>
 
-    <form id="formDeleteOrder">
-    	<input type="number" id="orderNumber"/>
-		<input type="submit" value="Borrar" />
-    </form>
+    <form id="formDeleteOrder" style="display:none;">
+    	<input class="boton" placeholder="Nº de orden" type="number" id="orderNumber"/>
+		<input class="buttonR" type="button" onclick="f()" value="Borrar" />
+	</form>
+	
+	<script>
+			function f() {
+			  document.getElementById('formAddOrder').style = "display:none;"
+			  document.getElementById('formUpdateOrder').style = "display:none;"
+			  document.getElementById('formDeleteOrder').style = "display:none;"
+			  document.getElementById('foo').setAttribute("class", "button")
+			  document.getElementById('foo2').setAttribute("class", "button")
+			  document.getElementById('foo3').setAttribute("class", "button")
+			  document.getElementById('orderNumber').value = ''
+			  document.getElementById('orderState').value = ''
+			}
+	</script>
 
     <div id="tabla"></div>
     

@@ -14,3 +14,79 @@ body {
   flex-direction: column;
   justify-content: flex-start;
 }
+
+.button {
+  font-size: 24px;
+  padding: 12px 28px;
+  border-radius: 4px;
+  background-color: #faecea;
+  color: #575772;
+  border: 2px solid #575772;
+  cursor: pointer;
+  margin-bottom: 20px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+.button:hover{
+  background-color: #575772;
+  color: #faecea;
+}
+
+.button2 {
+  font-size: 24px;
+  padding: 12px 28px;
+  border-radius: 4px;
+  background-color: #575772;
+  color: #faecea;
+  border: 2px solid #575772;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.buttonG  {
+  font-size: 24px;
+  padding: 12px 28px;
+  border-radius: 4px;
+  background-color:#faecea;
+  color: #575772;
+  border: 2px solid #7FFF00;
+  cursor: pointer;
+  margin-bottom: 20px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+.buttonR {
+  font-size: 24px;
+  padding: 12px 28px;
+  border-radius: 4px;
+  background-color:#faecea;
+  color: #575772;
+  border: 2px solid #CD5C5C;
+  cursor: pointer;
+  margin-bottom: 20px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+.buttonG:hover  {
+  background-color:#7FFF00;
+}
+
+.buttonR:hover {
+  background-color:#CD5C5C;
+}
+
+.boton {
+  font-size: 24px;
+  padding: 12px 28px;
+  border-radius: 4px;
+  background-color: #faecea;
+  color: #575772;
+  border: 2px solid #575772;
+  cursor: pointer;
+  margin-bottom: 20px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
