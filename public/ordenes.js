@@ -24,12 +24,16 @@ function updateHTML(pedidos){
     for (var pedido of pedidos) {
 
         var div = $(document.createElement("div"))
-        div.attr("style","display:flex;justify-content:space-around;align-items:center;");
+        div.css(styles.div);
+        
         var pNro = $(document.createElement("h1"))
-        var pState = $(document.createElement("p"))
+        pNro.css(styles.nro)
+        
+        var pState = $(document.createElement("h1"))
+        pState.css(styles.textState)
+        
         var iState = $(document.createElement("img"))
-        iState.attr("width","30px")
-        iState.attr("height","30px")
+        iState.css(styles.imgState)
 
         var estado = "";
         if(pedido.state == EN_PREPARACION){
@@ -51,5 +55,33 @@ function updateHTML(pedidos){
         div.css({backgroundColor: '#eeeeee', height: "100px"})
 
         container.append(div)
+    }
+}
+
+
+let styles = {
+    div: {
+        backgroundColor: "#eeeeee",
+        display:"flex",
+        justifyContent:"space-around",
+        alignItems:"center",
+        borderBottom: "1px solid gray"
+    },
+    nro: {
+        flexBase: 0,
+        flexGrow: 1,
+        textAlign: "center"
+    },
+    textState: {
+        flexBase:0,
+        flexGrow: 3,
+        textAlign: 'center',
+        width: "30%"
+    },
+    imgState: {
+        flexBase:0,
+        height: "50%",
+        width: "auto",
+        flexGrow: 1
     }
 }
