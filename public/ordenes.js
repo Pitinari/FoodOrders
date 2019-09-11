@@ -7,24 +7,47 @@ function updateListaOrdenes(){
     });
 }
 
+
+Array.prototype.diff = function(b) {
+    let bIds = [];
+    b.forEach((obj) => {
+        bIds[obj.id] = obj;
+    });
+
+    return this.filter((obj) => !(obj.id in bIds && obj.state == bIds[obj.id].state))
+}
+
+
+
 const LISTO = 0
 const EN_PREPARACION = 1
 const ENTREGADO = 2
 
+let ordenes = [];
 function updateHTML(pedidos){
     console.log('Actualizando ordenes')
-
-    var container = $('#tabla')
-
-    container.empty()
-
+    let container = $('#tabla')
+    
+    // container.empty()
+    
     pedidos = pedidos.filter((a) => a.state != ENTREGADO)
-    pedidos = pedidos.sort((a, b) => a.state - b.state)
 
-    for (var pedido of pedidos) {
+    pedidos = pedidos.sort((a, b) => a.state - b.state);
+    
+    let agregados  = pedidos.diff(ordenes);
+    let eliminados = ordenes.diff(pedidos);
 
+    ordenes = pedidos;
+
+    eliminados.forEach((pedido) => {
+        let div = $('#' + 'orden' + pedido.id);
+        div.remove();
+    });
+
+    agregados.forEach(pedido => {
         var div = $(document.createElement("div"))
         div.css(styles.div);
+        div.attr('id', 'orden' + pedido.number);
         
         var pNro = $(document.createElement("h1"))
         pNro.css(styles.nro)
@@ -54,8 +77,14 @@ function updateHTML(pedidos){
 
         div.css({backgroundColor: '#eeeeee', height: "100px"})
 
-        container.append(div)
-    }
+        let anteriorId =  Math.max(ordenes.indexOf(pedido) - 1, 0);
+        if (anteriorId > 0) {
+            let anterior = $('#' + 'orden' + ordenes[anteriorId]);
+            anterior.insertAfter(div);
+        } else {   
+            container.append(div)
+        }
+    });
 }
 
 

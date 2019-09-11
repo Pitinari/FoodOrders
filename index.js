@@ -17,12 +17,12 @@ fs.readFile('./orders.json', (err, data) => {
 });
 
 function saveOrders(orders) {
-    fs.writeFile("orders.json", JSON.stringify(orders), 'utf8', function (err) {
-        if (err) {
-            console.log("couldn't save orders to file.");
-        }
-        console.log('saved orders'); 
-    });
+    // fs.writeFile("orders.json", JSON.stringify(orders), 'utf8', function (err) {
+    //     if (err) {
+    //         console.log("couldn't save orders to file.");
+    //     }
+    //     console.log('saved orders'); 
+    // });
 }
 
 app.get('/api/orders', (req, res) => {
