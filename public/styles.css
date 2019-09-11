@@ -15,6 +15,22 @@ body {
   justify-content: flex-start;
 }
 
+.list-item {
+  animation: fadein 0.4s ease-in;
+  opacity: 1;
+}
+
+
+@keyframes fadein {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+
 .button {
   font-size: 24px;
   padding: 12px 28px;

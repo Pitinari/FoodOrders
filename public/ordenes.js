@@ -48,6 +48,7 @@ function updateHTML(pedidos){
         var div = $(document.createElement("div"))
         div.css(styles.div);
         div.attr('id', 'orden' + pedido.number);
+        div.addClass('list-item');
         
         var pNro = $(document.createElement("h1"))
         pNro.css(styles.nro)
