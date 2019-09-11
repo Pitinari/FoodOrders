@@ -32,12 +32,12 @@ function updateHTML(pedidos){
     
     pedidos = pedidos.filter((a) => a.state != ENTREGADO)
 
-    pedidos = pedidos.sort((a, b) => a.state - b.state);
+    pedidos = pedidos.sort((a, b) => a.state + b.state);
     
     let agregados  = pedidos.diff(ordenes);
     let eliminados = ordenes.diff(pedidos);
     
-    ordenes = pedidos.sort((a, b) => b.state - a.state);
+    ordenes = pedidos.sort((a, b) => b.state + a.state);
 
     eliminados.forEach((pedido) => {
         let div = $('#' + 'orden' + pedido.id);
