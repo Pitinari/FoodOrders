@@ -36,8 +36,8 @@ function updateHTML(pedidos){
     
     let agregados  = pedidos.diff(ordenes);
     let eliminados = ordenes.diff(pedidos);
-
-    ordenes = pedidos;
+    
+    ordenes = pedidos.sort((a, b) => b.state - a.state);
 
     eliminados.forEach((pedido) => {
         let div = $('#' + 'orden' + pedido.id);
@@ -79,9 +79,12 @@ function updateHTML(pedidos){
 
         let anteriorId =  Math.max(ordenes.indexOf(pedido) - 1, 0);
         if (anteriorId > 0) {
-            let anterior = $('#' + 'orden' + ordenes[anteriorId]);
-            anterior.insertAfter(div);
+            let nose = '#' + 'orden' + ordenes[anteriorId].id;
+            let anterior = $(nose);
+            anterior.after(div);
+            console.log('ant');
         } else {   
+            console.log('padre');
             container.append(div)
         }
     });
