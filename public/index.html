@@ -10,15 +10,18 @@
         updateListaOrdenes()
     	setInterval(updateListaOrdenes, 1000)
     	$("#formAddOrder").submit(function( event ) {
-		  onClickAddOrder()
+			onClickAddOrder()
+			f()
 		  event.preventDefault()
 		})
 		$("#formUpdateOrder").submit(function( event ) {
-		  onClickUpdateOrder()
+			onClickUpdateOrder()
+			f()
 		  event.preventDefault()
 		})
 		$("#formDeleteOrder").submit(function( event ) {
-		  onClickDeleteOrder()
+			onClickDeleteOrder()
+			f()
 		  event.preventDefault()
 		})
     });
@@ -30,14 +33,14 @@
 
 	<div>
 
-			<input type="button" id="foo" class="button" onclick="agg()" value="Agregar orden"/>
-			<input type="button" id="foo2" class="button" onclick="upd()" value="Actualizar orden"/>
-			<input type="button" id="foo3" class="button" onclick="del()" value="Borrar orden"/>
+			<input type="button" id="foo" class="button" onclick="showAgg()" value="Agregar orden"/>
+			<input type="button" id="foo2" class="button" onclick="showUpd()" value="Actualizar orden"/>
+			<input type="button" id="foo3" class="button" onclick="showDel()" value="Borrar orden"/>
 
 	</div>
 
 	<script>
-			function agg() {
+			function showAgg() {
 			  document.getElementById('formAddOrder').style = ""
 			  document.getElementById('formUpdateOrder').style = "display:none;"
 			  document.getElementById('formDeleteOrder').style = "display:none;"
@@ -45,7 +48,7 @@
 			  document.getElementById('foo2').setAttribute("class", "button")
 			  document.getElementById('foo3').setAttribute("class", "button")
 			}
-			function upd() {
+			function showUpd() {
 			  document.getElementById('formAddOrder').style = "display:none;"
 			  document.getElementById('formUpdateOrder').style = ""
 			  document.getElementById('formDeleteOrder').style = "display:none;"
@@ -53,7 +56,7 @@
 			  document.getElementById('foo').setAttribute("class", "button")
 			  document.getElementById('foo3').setAttribute("class", "button")
 			}
-			function del() {
+			function showDel() {
 			  document.getElementById('formAddOrder').style = "display:none;"
 			  document.getElementById('formUpdateOrder').style = "display:none;"
 			  document.getElementById('formDeleteOrder').style = ""
@@ -71,7 +74,7 @@
 		  <option value=0>Listo</option>
 		  <option value=2>Entregado</option>
 		</select>
-		<input class="buttonG" type="button" onclick="f()" value="Agregar" />
+		<input class="buttonG" type="submit" value="Agregar" />
     </form>
 
     <form id="formUpdateOrder" style="display:none;">
@@ -82,12 +85,12 @@
 		  <option value=0>Listo</option>
 		  <option value=2>Entregado</option>
 		</select>
-		<input class="buttonG" type="button" onclick="f()" value="Actualizar" />
+		<input class="buttonG" type="submit" value="Actualizar" />
     </form>
 
     <form id="formDeleteOrder" style="display:none;">
     	<input class="boton" placeholder="Nº de orden" type="number" id="orderNumber"/>
-		<input class="buttonR" type="button" onclick="f()" value="Borrar" />
+		<input class="buttonR" type="submit" value="Borrar" />
 	</form>
 	
 	<script>
