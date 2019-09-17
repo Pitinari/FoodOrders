@@ -19,25 +19,25 @@ Array.prototype.diff = function(b) {
 
 
 
-const LISTO = 0
-const EN_PREPARACION = 1
+const EN_PREPARACION = 0
+const LISTO = 1
 const ENTREGADO = 2
 
 let ordenes = [];
 function updateHTML(pedidos){
     console.log('Actualizando ordenes')
     let container = $('#tabla')
-    
+
     // container.empty()
-    
+
     pedidos = pedidos.filter((a) => a.state != ENTREGADO)
 
-    pedidos = pedidos.sort((a, b) => a.state + b.state);
-    
+    pedidos = pedidos.sort((a, b) => a.state - b.state);
+
     let agregados  = pedidos.diff(ordenes);
     let eliminados = ordenes.diff(pedidos);
-    
-    ordenes = pedidos.sort((a, b) => b.state + a.state);
+
+    ordenes = pedidos.sort((a, b) => b.state - a.state);
 
     eliminados.forEach((pedido) => {
         let div = $('#' + 'orden' + pedido.id);
@@ -49,13 +49,13 @@ function updateHTML(pedidos){
         div.css(styles.div);
         div.attr('id', 'orden' + pedido.number);
         div.addClass('list-item');
-        
+
         var pNro = $(document.createElement("h1"))
         pNro.css(styles.nro)
-        
+
         var pState = $(document.createElement("h1"))
         pState.css(styles.textState)
-        
+
         var iState = $(document.createElement("img"))
         iState.css(styles.imgState)
 
@@ -76,18 +76,19 @@ function updateHTML(pedidos){
         div.append(pState)
         div.append(iState)
 
-        div.css({backgroundColor: '#eeeeee', height: "100px"})
+        div.css({backgroundColor: '#eeeeee', height: "0"})
 
-        let anteriorId =  Math.max(ordenes.indexOf(pedido) - 1, 0);
-        if (anteriorId > 0) {
+        let anteriorId =  ordenes.indexOf(pedido) - 1;
+        if (anteriorId >= 0) {
             let nose = '#' + 'orden' + ordenes[anteriorId].id;
             let anterior = $(nose);
             anterior.after(div);
             console.log('ant');
-        } else {   
+        } else {
             console.log('padre');
             container.append(div)
         }
+        div.animate({down : '100px', height: '+=100px'},1000)
     });
 }
 

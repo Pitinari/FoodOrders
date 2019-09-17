@@ -17,12 +17,12 @@ fs.readFile('./orders.json', (err, data) => {
 });
 
 function saveOrders(orders) {
-    // fs.writeFile("orders.json", JSON.stringify(orders), 'utf8', function (err) {
-    //     if (err) {
-    //         console.log("couldn't save orders to file.");
-    //     }
-    //     console.log('saved orders'); 
-    // });
+     fs.writeFile("orders.json", JSON.stringify(orders), 'utf8', function (err) {
+         if (err) {
+             console.log("couldn't save orders to file.");
+         }
+         console.log('saved orders');
+     });
 }
 
 app.get('/api/orders', (req, res) => {
@@ -30,9 +30,11 @@ app.get('/api/orders', (req, res) => {
 });
 
 app.post('/api/add', (req, res) => {
-    orders.push(req.body.order);
-    saveOrders(orders);
-    res.send(orders);
+    if(!orders.find(orden => req.body.order.id == orden.id)){
+      orders.push(req.body.order);
+      saveOrders(orders);
+      res.send(orders);
+    }
 });
 
 app.post('/api/update', (req, res) => {

@@ -71,8 +71,8 @@
     <form id="formAddOrder" style="display:none;">
     	<input class="boton" placeholder="Nº de orden" type="number" id="orderNumber">
     	<select class="boton" id="orderState">
-		  <option value=1 selected>En Preparacion</option>
-		  <option value=0>Listo</option>
+		  <option value=0 selected>En Preparacion</option>
+		  <option value=1>Listo</option>
 		  <option value=2>Entregado</option>
 		</select>
 		<input class="buttonG" type="submit" value="Agregar" />
@@ -81,8 +81,8 @@
     <form id="formUpdateOrder" style="display:none;">
     	<input class="boton" placeholder="Nº de orden" type="number" id="orderNumber">
     	<select class="boton" id="orderState">
-		  <option value=1 selected>En Preparacion</option>
-		  <option value=0>Listo</option>
+		  <option value=0 selected>En Preparacion</option>
+		  <option value=1>Listo</option>
 		  <option value=2>Entregado</option>
 		</select>
 		<input class="buttonG" type="submit" value="Actualizar" />
@@ -92,7 +92,7 @@
     	<input class="boton" placeholder="Nº de orden" type="number" id="orderNumber"/>
 		<input class="buttonR" type="submit" value="Borrar" />
 	</form>
-	
+
 	<script>
 			function f() {
 			  document.getElementById('formAddOrder').style = "display:none;"
@@ -102,10 +102,10 @@
 			  document.getElementById('foo2').setAttribute("class", "button")
 			  document.getElementById('foo3').setAttribute("class", "button")
 			  document.getElementById('orderNumber').value = 1
-			  document.getElementById('orderState').value = 1
+			  document.getElementById('orderState').value = 0
 			}
 	</script>
 
     <div id="tabla"></div>
-    
+
 </body>
