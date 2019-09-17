@@ -4,7 +4,8 @@
 		<link rel="icon" href="./icons/en-proceso.svg">
 		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <script src="./jquery.js"></script>
-    <script src="./test.js"></script>
+    <script src="./database.js"></script>
+    <script src="./ordenes.js"></script>
     <script src="./manejoOrdenes.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
@@ -28,7 +29,7 @@
     });
     </script>
 </head>
-<body>
+<body style="display: flex; flex-direction: column; justify-content: flex-start;">
 
 	<h1>Acciones:</h1>
 
@@ -70,8 +71,7 @@
     <form id="formAddOrder" style="display:none;">
     	<input class="boton" placeholder="Nº de orden" type="number" id="orderNumber">
     	<select class="boton" id="orderState">
-		  <option disabled value="" selected hidden>Seleccione estado</option>
-		  <option value=1>En Proceso</option>
+		  <option value=1 selected>En Preparacion</option>
 		  <option value=0>Listo</option>
 		  <option value=2>Entregado</option>
 		</select>
@@ -81,8 +81,7 @@
     <form id="formUpdateOrder" style="display:none;">
     	<input class="boton" placeholder="Nº de orden" type="number" id="orderNumber">
     	<select class="boton" id="orderState">
-		  <option disabled value="" selected hidden>Seleccione estado</option>
-		  <option value=1>En Proceso</option>
+		  <option value=1 selected>En Preparacion</option>
 		  <option value=0>Listo</option>
 		  <option value=2>Entregado</option>
 		</select>
@@ -102,8 +101,8 @@
 			  document.getElementById('foo').setAttribute("class", "button")
 			  document.getElementById('foo2').setAttribute("class", "button")
 			  document.getElementById('foo3').setAttribute("class", "button")
-			  document.getElementById('orderNumber').value = ''
-			  document.getElementById('orderState').value = ''
+			  document.getElementById('orderNumber').value = 1
+			  document.getElementById('orderState').value = 1
 			}
 	</script>
 
