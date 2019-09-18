@@ -37,11 +37,17 @@ function updateHTML(pedidos){
     let agregados  = pedidos.diff(ordenes);
     let eliminados = ordenes.diff(pedidos);
 
+
     ordenes = pedidos.sort((a, b) => b.state - a.state);
+    agregados = agregados.sort((a, b) => b.state - a.state);
 
     eliminados.forEach((pedido) => {
         let div = $('#' + 'orden' + pedido.id);
-        div.remove();
+        div.animate({up:"100px",height:"0px"},1000)
+        setTimeout(() => {
+            div.remove();
+        },1000)
+        //div.remove();
     });
 
     agregados.forEach(pedido => {
@@ -58,6 +64,17 @@ function updateHTML(pedidos){
 
         var iState = $(document.createElement("img"))
         iState.css(styles.imgState)
+        iState.click(() => {
+            let idParent = iState.parent().attr("id");
+            idParent = idParent.slice(5,20);
+            let nroOrden = parseInt(idParent);
+            let order = {
+                id: nroOrden,
+                number: nroOrden,
+                state: (pedido.state)+1
+            }
+            upd(order);
+        })
 
         var estado = "";
         if(pedido.state == EN_PREPARACION){
